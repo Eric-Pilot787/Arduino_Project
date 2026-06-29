@@ -1,6 +1,11 @@
-const int RED_PIN = 4;
+// 利用RGB全彩燈，紅4 綠2 藍15
+// 使用analogwrite 與 map 做數值轉換
+// 紅燈 3 秒、黃燈 1 秒、綠燈 3 秒
+// 順序 綠->黃->紅
+
 const int GREEN_PIN = 2;
 const int BLUE_PIN = 15;
+const int RED_PIN = 4;
 const int LEVEL_MS = 1000;
 
 void setup() {
@@ -16,6 +21,7 @@ void setColor(int redPercent, int greenPercent, int bluePercent) {
 }
 
 void loop() {
+
   setColor(0, 100, 0);   // 綠燈 3 秒
   delay(3000);
 
@@ -24,4 +30,5 @@ void loop() {
 
   setColor(100, 0, 0);   // 紅燈 3 秒
   delay(3000);
+
 }

@@ -16,8 +16,8 @@ void setup() {
 
 void loop() {
     lightAnalogValue = analogRead(lightAnalogPin);
-    if(lightAnalogValue > BRIGHT_THRESHOLD) 
+    if(lightAnalogValue < BRIGHT_THRESHOLD) 
       digitalWrite(ledPin, LOW);
-    else if (lightAnalogValue < DARK_THRESHOLD)
+    else if (lightAnalogValue > DARK_THRESHOLD)
       digitalWrite(ledPin, HIGH);
 }

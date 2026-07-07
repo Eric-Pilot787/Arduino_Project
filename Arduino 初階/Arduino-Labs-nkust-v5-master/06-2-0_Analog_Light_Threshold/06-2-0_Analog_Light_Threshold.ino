@@ -4,7 +4,7 @@
 
 // constants won't change. They're used here to set pin numbers:
 const int lightAnalogPin = A0;
-const int ledPin =  LED_BUILTIN;      // the number of the LED pin
+const int ledPin =  9;      // the number of the LED pin
 
 // variables will change:
 int lightAnalogValue;

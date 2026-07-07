@@ -39,7 +39,7 @@ void setup() {
   pinMode(PIN_RED, OUTPUT);
   pinMode(PIN_YELLOW, OUTPUT);
   pinMode(PIN_GREEN, OUTPUT);
-  pinMode(PIN_BUTTON, INPUT);
+  pinMode(PIN_BUTTON, INPUT_PULLUP);
 
   // At first, set red LED on and the others off
   digitalWrite(PIN_RED, HIGH);
@@ -123,7 +123,7 @@ void loop() {
   // Read push button
   if(allow_read_button) {
     val = digitalRead(PIN_BUTTON);
-    if (val==HIGH) {  // button is pressed, change mode        
+    if (val==LOW) {  // button is pressed, change mode        
       switch (mode) {
           case MODE_NORMAL:
             Serial.println("Mode change: NORMAL --> FLASH_YELLOW");

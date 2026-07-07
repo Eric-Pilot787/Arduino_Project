@@ -1,4 +1,4 @@
-#define BRIGHT_MAX  630
+#define BRIGHT_MAX  60
 
 const int ledPin = 9;
 const int lightPin = A0; 

@@ -27,6 +27,7 @@
 Adafruit_NeoPixel strip(LED_COUNT, LED_PIN, NEO_GRB + NEO_KHZ800);
 
 void setup() {
+  delay(1000);
   strip.begin();       // 初始化燈條物件，設定資料腳位
   strip.setBrightness(60);  // 亮度調低一些，避免全白全亮電流過大 (0~255)
   strip.show();         // 一開始先送出「全部熄滅」的狀態

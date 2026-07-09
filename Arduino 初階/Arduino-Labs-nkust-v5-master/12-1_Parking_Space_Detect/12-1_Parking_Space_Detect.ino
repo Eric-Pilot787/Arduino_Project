@@ -1,3 +1,5 @@
+#include <NewTone.h>
+
 #include <NewPing.h>
 
 #define CURRENT_TEMPERATURE 26.0

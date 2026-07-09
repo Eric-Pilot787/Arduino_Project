@@ -28,12 +28,13 @@
 // 亮度門檻值：請依教室實際亮度自行調整
 // 建議先只上傳量測用的程式碼（見下方註解），
 // 觀察不同亮度下 analogRead() 的讀值後再設定
-int BRIGHT_THRESHOLD = 600;  // 高於此值視為「明亮」
-int DARK_THRESHOLD   = 300;  // 低於此值視為「非常暗」
+int BRIGHT_THRESHOLD = 100;  // 高於此值視為「明亮」
+int DARK_THRESHOLD   = 350;  // 低於此值視為「非常暗」
 
 Adafruit_NeoPixel strip(LED_COUNT, LED_PIN, NEO_GRB + NEO_KHZ800);
 
 void setup() {
+  delay(1000);
   strip.begin();
   strip.setBrightness(60);
   strip.show();
@@ -45,12 +46,12 @@ void loop() {
   int lightValue = analogRead(LDR_PIN);   // 讀取光敏電阻的亮度數值 (0~1023)
   Serial.println(lightValue);             // 序列埠印出讀值，方便調整門檻
 
-  if (lightValue >= BRIGHT_THRESHOLD) {
+  if (lightValue <= BRIGHT_THRESHOLD) {
     // 環境明亮 -> 綠色
     setAllPixels(0, 255, 0);
     strip.show();
 
-  } else if (lightValue <= DARK_THRESHOLD) {
+  } else if (lightValue >= DARK_THRESHOLD) {
     // 環境非常暗 -> 紅色閃爍（警示效果）
     setAllPixels(255, 0, 0);
     strip.show();

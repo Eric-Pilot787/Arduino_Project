@@ -6,7 +6,7 @@
 #define SCREEN_WIDTH 128 // OLED display width, in pixels
 #define SCREEN_HEIGHT 64 // OLED display height, in pixels
 #define OLED_RESET     -1 // Reset pin # (or -1 if sharing Arduino reset pin)
-#define SCREEN_ADDRESS 0x3D ///< See datasheet for Address; 0x3D for 128x64, 0x3C for 128x32
+#define SCREEN_ADDRESS 0x3C ///< See datasheet for Address; 0x3D for 128x64, 0x3C for 128x32
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
 #define DHTPIN 2     // what pin we're connected to
@@ -78,7 +78,7 @@ void loop()
         if(h<10.0) display.print(" ");
         display.print(h, 1);
         display.println(" \%");
-        
+        display.display();
         // if value > limit, LED on; else LED off
         if(t >= TEMP_LIMIT)
           digitalWrite(LED_TEMP, HIGH);
